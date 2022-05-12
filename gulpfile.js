@@ -7,6 +7,7 @@ import csso from 'postcss-csso';
 import rename from 'gulp-rename';
 import htmlmin from 'gulp-htmlmin';
 import terser from 'gulp-terser';
+import squoosh from 'gulp-libsquoosh';
 import del from 'del';
 import browser from 'browser-sync';
 
@@ -42,7 +43,20 @@ const scripts = () => {
     .pipe(browser.stream());
 };
 
-// Copy
+// Images
+
+const images = () => {
+  return gulp.src('source/img/**/*.{png,jpg}')
+    .pipe(squoosh())
+    .pipe(gulp.dest('build/img'))
+};
+
+const copyImages = () => {
+  return gulp.src('source/img/**/*.{png,jpg}')
+    .pipe(gulp.dest('build/img'))
+};
+
+// favicon
 
 const favicon =() => {
   return gulp.src(['favicon.ico', 'manifest.webmanifest'])
@@ -81,6 +95,7 @@ const watcher = () => {
 
 export const build = gulp.series(
   clean,
+  images,
   gulp.parallel(
     styles,
     html,
@@ -93,6 +108,7 @@ export const build = gulp.series(
 
 export default gulp.series(
   clean,
+  copyImages,
   gulp.parallel(
     styles,
     html,
