@@ -19,12 +19,12 @@
 
   <main class="page-main">
     <section class="upper-block">
-      <div class="block">
-        <h1 class="upper-block__title">ПРИВЕТ МИР!</h1>
+      <div class="block block--opened">
+        <h1 class="upper-block__title">Привет, мир!</h1>
       </div>
     </section>
     <section class="middle-blocks">
-      <div class="block"></div>
+      <div class="block block--moved"></div>
       <div class="block block--dashed"></div>
       <div class="block"></div>
     </section>
@@ -36,6 +36,19 @@
         <button type="button" class="btn btn-success btn-lg">Кнопка-2</button>
       </div>
     </section>
+    <div class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">Привет, мир.</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary">Закрыть</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="page-footer"></footer>

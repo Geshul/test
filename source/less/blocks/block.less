@@ -1,9 +1,21 @@
 .block {
-  border: 1px solid black;
+  border: 1px solid @basic-black;
   margin: 5px;
 
   &--dashed {
     border-style: dashed;
-    background-color: lightcyan;
+    background-color: @basic-blue;
+  }
+
+  &--moved {
+    background-color: @basic-red;
+  }
+
+  &--closed {
+    display: none;
+  }
+
+  &--opened {
+    display: block;
   }
 }
