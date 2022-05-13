@@ -1,0 +1,14 @@
+.bottom-blocks {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  @media(max-width: @mobile-only-width) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bottom-blocks .block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
