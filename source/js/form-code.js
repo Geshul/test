@@ -1,33 +1,38 @@
 function doThingsForm () {
   $("form").submit(function( event ) {
+  event.preventDefault();
   let result = {}
   $("form").serializeArray().map((el) => {
   result[el.name] = el.value;
 });
-  $('.page__form-screen').text(JSON.stringify(result));
-  event.preventDefault();
-  sendData();
+  const formData = JSON.stringify(result);
+  $('.page__form-screen').text(formData);
+  sendData(formData);
 });
 }
 
-const sendData = () => {
+const sendData = (data) => {
   fetch(
-    'index.html',
+    '/data.json?' + new URLSearchParams(data),
     {
       method: 'GET',
     },
   )
     .then((response) => {
       if (response.ok) {
-        alert('Данные успешно отправлены');
+        return response.json();
       } else {
         alert('Данные не отправлены');
       }
     })
+
+    .then((response) => {
+      alert(response.message);
+    })
+
     .catch(() => {
       alert('Данные не отправлены');
     });
 };
-
 
 export { doThingsForm};

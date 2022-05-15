@@ -43,6 +43,12 @@ const scripts = () => {
     .pipe(browser.stream());
 };
 
+const json = () => {
+  return gulp.src('source/*.json')
+    .pipe(gulp.dest('build'))
+};
+
+
 // Images
 
 const images = () => {
@@ -100,6 +106,7 @@ export const build = gulp.series(
     styles,
     html,
     scripts,
+    json,
     favicon
   ),
 );
@@ -113,6 +120,7 @@ export default gulp.series(
     styles,
     html,
     scripts,
+    json,
     favicon
   ),
   gulp.series(

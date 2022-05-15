@@ -1,1 +1,1 @@
-import{doThingsIndex}from"./index-code.js";import{doThingsForm}from"./form-code.js";doThingsIndex(),doThingsForm();
+import{doThingsIndex}from"./index-code.js";import{doThingsForm}from"./form-code.js";$(document).ready((function(o){const e=$(".modal");e.show();$(".modal button").on("click",(o=>{e.hide()})),$(document).on("keydown",(o=>{"Escape"===o.key&&e.hide()})),$(document).on("mouseup",(o=>{const n=$(".modal-content");n.is(o.target)||0!==n.has(o.target).length||e.hide()})),setTimeout((()=>{e.hide()}),5e3)})),doThingsIndex(),doThingsForm();
