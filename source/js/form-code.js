@@ -1,12 +1,15 @@
+const mainForm = $("form");
+const formDisplay = $('.page__form-screen');
+
 function doThingsForm () {
-  $("form").submit(function( event ) {
+  mainForm.submit((event) => {
   event.preventDefault();
   let result = {}
-  $("form").serializeArray().map((el) => {
+  mainForm.serializeArray().map((el) => {
   result[el.name] = el.value;
 });
   const formData = JSON.stringify(result);
-  $('.page__form-screen').text(formData);
+  formDisplay.text(formData);
   sendData(formData);
 });
 }
@@ -25,14 +28,12 @@ const sendData = (data) => {
         alert('Данные не отправлены');
       }
     })
-
     .then((response) => {
       alert(response.message);
     })
-
     .catch(() => {
       alert('Данные не отправлены');
     });
 };
 
-export { doThingsForm};
+doThingsForm();
